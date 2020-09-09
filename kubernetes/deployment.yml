@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: member
-          image: admin6acr.azurecr.io/member:$(Build.BuildId)
+          image: admin6acr.azurecr.io/member
           ports:
             - containerPort: 8080
           readinessProbe:

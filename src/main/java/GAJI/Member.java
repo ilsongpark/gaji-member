@@ -19,6 +19,16 @@ public class Member {
         BeanUtils.copyProperties(this, joined);
         joined.publishAfterCommit();
 
+        //Following code causes dependency to external APIs
+        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+
+        GAJI.external.Notice notice = new GAJI.external.Notice();
+        notice.setMemberId(joined.getId());
+        notice.setMsg("Welcome Gaji market");
+        // mappings goes here
+        MemberApplication.applicationContext.getBean(GAJI.external.NoticeService.class)
+                .send(notice);
+
 
     }
 

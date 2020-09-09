@@ -37,6 +37,18 @@ logging:
     org.springframework.cloud: debug
 server:
   port: 8083
+
+api:
+  url:
+    notice: http://localhost:8087
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 650
 ---
 
 spring:
@@ -62,3 +74,14 @@ spring:
         event-out:
           destination: GAJI
           contentType: application/json
+api:
+  url:
+    notice: http://notice:8080
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 650

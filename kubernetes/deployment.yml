@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: member
-          image: admin6acr.azurecr.io/member
+          image: username/member:latest
           ports:
             - containerPort: 8080
 #          readinessProbe:
